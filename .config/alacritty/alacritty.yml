@@ -1,0 +1,95 @@
+env:
+  TERM: xterm-256color
+
+window:
+  dimensions:
+    columns: 100
+    lines: 60
+  dynamic_padding: true
+  decorations: full
+  title: Alacritty@Garuda
+  opacity: 1
+  class:
+    instance: Alacritty
+    general: Alacritty
+  gtk_theme_variant: dark
+  padding:
+    x: 20
+    y: 20
+
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
+font:
+  size: 13
+  normal:
+    family: Inconsolata SemiCondensed
+  bold:
+    style: Bold  
+    family: Inconsolata SemiCondensed
+  italic:
+    family:  Inconsolata SemiCondensed
+  bold_italic:
+    family:  Inconsolata SemiCondensed
+    style: Bold
+    size: 13
+
+draw_bold_text_with_bright_colors: true
+
+save_to_clipboard: true
+
+window.dynamic_title: true
+
+cursor:
+  style: Underline
+
+live_config_reload: true
+
+shell:
+  program: /usr/bin/fish
+  args:
+    - --login
+
+mouse:
+  hide_when_typing: true
+
+key_bindings:
+    # (Windows, Linux, and BSD only)
+  - { key: V,        mods: Control|Shift, action: Paste            }
+  - { key: C,        mods: Control|Shift, action: Copy             }
+  - { key: Insert,   mods: Shift,         action: PasteSelection   }
+  - { key: Key0,     mods: Control,       action: ResetFontSize    }
+  - { key: Equals,   mods: Control,       action: IncreaseFontSize }
+  - { key: Plus,     mods: Control,       action: IncreaseFontSize }
+  - { key: Minus,    mods: Control,       action: DecreaseFontSize }
+  - { key: Minus,    mods: Control,       action: DecreaseFontSize }
+
+colors:
+  # Default colors
+  primary:
+    background: '0xf2e5bc'
+    foreground: '0x3c3836'
+
+  # Normal colors
+  normal:
+    black:   '0x282828'
+    red:     '0x9d0006'
+    green:   '0x79740e'
+    yellow:  '0xb57614'
+    blue:    '0x076678'
+    magenta: '0x8f3f71'
+    cyan:    '0x427b58'
+    white:   '0x504945'
+
+  # Bright colors
+  bright:
+    black:   '0x3c3836'
+    red:     '0xcc241d'
+    green:   '0x98971a'
+    yellow:  '0xd79921'
+    blue:    '0x458588'
+    magenta: '0xb16286'
+    cyan:    '0x689d6a'
+    white:   '0x928374'

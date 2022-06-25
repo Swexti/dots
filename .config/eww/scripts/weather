@@ -1,0 +1,177 @@
+#!/bin/sh
+
+updateweather() {
+[ -d /tmp/weather ] || mkdir /tmp/weather
+
+weat=$(curl -sf "http://api.weatherapi.com/v1/current.json?key=c8e22d2656c34438aac225153222006&q=Hudiksvall&aqi=no")
+
+ID=$(echo "$weat" | grep -o '"code":....' | tr -dc '.0-9\n' )
+
+desc=""
+icon=""
+
+if [ "$ID" = 1000 ]; then
+  desc="Clear"
+  icon=""
+elif [ "$ID" = 1003 ]; then
+  desc="Partly Cloudy"
+  icon=""
+elif [ "$ID" = 1006 ]; then
+  desc="Cloudy"
+  icon=""
+elif [ "$ID" = 1009 ]; then
+  desc="Overcast"
+  icon=""
+elif [ "$ID" = 1030 ]; then
+  desc="Mist"
+  icon=""
+elif [ "$ID" = 1063 ]; then
+  desc="Patchy rain possible"
+  icon=""
+elif [ "$ID" = 1066 ]; then
+  desc="Patchy snow possible"
+  icon=""
+elif [ "$ID" = 1069 ]; then
+  desc="Patchy sleet possible"
+  icon=""
+elif [ "$ID" = 1072 ]; then
+  desc="Patchy freezing drizzle possible"
+  icon=""
+elif [ "$ID" = 1087 ]; then
+  desc="Thundery outbreaks possible"
+  icon=""
+elif [ "$ID" = 1114 ]; then
+  desc="Blowing snow"
+  icon=""
+elif [ "$ID" = 1117 ]; then
+  desc="Blizzard"
+  icon=""
+elif [ "$ID" = 1135 ]; then
+  desc="Fog"
+  icon=""
+elif [ "$ID" = 1147 ]; then
+  desc="Freezing fog"
+  icon=""
+elif [ "$ID" = 1150 ]; then
+  desc="Patchy light drizzle"
+  icon=""
+elif [ "$ID" = 1153 ]; then
+  desc="Light drizzle"
+  icon=""
+elif [ "$ID" = 1168 ]; then
+  desc="Freezing drizzle"
+  icon=""
+elif [ "$ID" = 1171 ]; then
+  desc="Heavy freezing drizzle"
+  icon=""
+elif [ "$ID" = 1180 ]; then
+  desc="Patchy light rain"
+  icon=""
+elif [ "$ID" = 1183 ]; then
+  desc="Light Rain"
+  icon=""
+elif [ "$ID" = 1186 ]; then
+  desc="Moderate rain at times"
+  icon=""
+elif [ "$ID" = 1189 ]; then
+  desc="Moderate rain"
+  icon=""
+elif [ "$ID" = 1192 ]; then
+  desc="Heavy rain at times"
+  icon=""
+elif [ "$ID" = 1195 ]; then
+  desc="Heavy rain"
+  icon=""
+elif [ "$ID" = 1198 ]; then
+  desc="Light freezing rain"
+  icon=""
+elif [ "$ID" = 1201 ]; then
+  desc="Moderate or heavy freezing rain"
+  icon=""
+elif [ "$ID" = 1204 ]; then
+  desc="Light sleet"
+  icon=""
+elif [ "$ID" = 1207 ]; then
+  desc="Moderate or heavy sleet"
+  icon=""
+elif [ "$ID" = 1210 ]; then
+  desc="Patchy light snow"
+  icon=""
+elif [ "$ID" = 1213 ]; then
+  desc="Light snow"
+  icon=""
+elif [ "$ID" = 1216 ]; then
+  desc="Patchy moderate snow"
+  icon=""
+elif [ "$ID" = 1219 ]; then
+  desc="Moderate snow"
+  icon=""
+elif [ "$ID" = 1222 ]; then
+  desc="Patchy heavy snow"
+  icon=""
+elif [ "$ID" = 1225 ]; then
+  desc="Heavy snow"
+  icon=""
+elif [ "$ID" = 1237 ]; then
+  desc="Ice pellets"
+  icon=""
+elif [ "$ID" = 1240 ]; then
+  desc="Light rain shower"
+  icon=""
+elif [ "$ID" = 1243 ]; then
+  desc="Moderate or heavy rain shower"
+  icon=""
+elif [ "$ID" = 1246 ]; then
+  desc="Torrential rain shower"
+  icon=""
+elif [ "$ID" = 1249 ]; then
+  desc="Light sleet showers"
+  icon=""
+elif [ "$ID" = 1252 ]; then
+  desc="Moderate or heavy sleet showers"
+  icon=""
+elif [ "$ID" = 1255 ]; then
+  desc="Light snow showers"
+  icon=""
+elif [ "$ID" = 1258 ]; then
+  desc="Moderate or heavy snow showers"
+  icon=""
+elif [ "$ID" = 1261 ]; then
+  desc="Light showers of ice pellets"
+  icon=""
+elif [ "$ID" = 1264 ]; then
+  desc="Moderate or heavy showers of ice pellets"
+  icon=""
+elif [ "$ID" = 1273 ]; then
+  desc="Patchy light rain with thunder"
+  icon=""
+elif [ "$ID" = 1276 ]; then
+  desc="Moderate or heavy rain with thunder"
+  icon=""
+elif [ "$ID" = 1279 ]; then
+  desc="Patchy light snow with thunder"
+  icon=""
+elif [ "$ID" = 1282 ]; then
+  desc="Moderate or heavy snow with thunder"
+  icon=""
+fi
+
+if [ "$desc" = "" ]; then
+  desc="N/A"
+  icon=""
+fi
+
+
+echo "$weat" | grep -o '"temp_c":....' | tr -cd '.1-9\n' > /tmp/weather/temp
+echo "$desc" > /tmp/weather/description
+echo "$icon" > /tmp/weather/icon
+echo "$weat" | grep -o '"localtime":"................' | tr -dc "\-\:0-9 \n" > /tmp/weather/call
+}
+
+case $1 in
+  --icon) cat /tmp/weather/icon ;;
+  --call) cat /tmp/weather/call ;;
+  --desc) cat /tmp/weather/description ;;
+  --temp) cat /tmp/weather/temp ;;
+  *) updateweather ;;
+esac

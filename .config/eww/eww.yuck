@@ -1,0 +1,496 @@
+;yeah so this config kinda messy, i have no idea how to properly do stuff, feel free to fix it. But hey, it works.
+;class names are a bit whack as well
+
+(defwidget widget []
+	(box :orientation "h" :space-evenly "false"
+		(box :orientation "v" :class "l11" :space-evenly "false"
+			(box :orientation "v" :class "l21" :space-evenly "false"
+				(box :orientation "h" :class "l31" :valign "start"
+					(box :orientation "h" :class "web"
+						(box :orientation "h" :class "web-search"
+							(input :value "Search the world wide web..." :onaccept "xdg-open 'https://search.brave.com/search?q={}'")
+							
+							(label :text "" :class "feather" :halign "end")
+							
+						)
+					)
+				)
+				(box :orientation "h" :class "l32" :valign "end" :space-evenly "false"
+					(box :orientation "v" :class "l41"
+						(box :orientation "v" :class "calendar"
+							(calendar)
+						)
+						(box :orientation "v" :class "quote1"
+							(label :text '"' :halign "start")
+							(label :text "ur the bread" :halign "start")
+							(label :text '"' :halign "start")
+							(label :text "-- Elkowar 2020" :halign "start")
+						)
+					)
+					(box :orientation "v" :class "l42" :space-evenly "false"
+						(box :orientation "v" :class "highest" :space-evenly "false"
+							(label :text "Current highest Crypto")
+							(label :text "value")
+							(label :text "$35,084.59" :style "font-size: 2em; color: #F9B163; font-weight: Bold;")
+							(label :text "(WBTC)" :style "font-size: 0.8em" )
+						)
+						(box :orientation "v" :class "folders"
+							(button :style "color: #ee6388" "Home")
+							(button :style "color: #fb7b9e" "Downloads")
+							(button :style "color: #f9b163" "Documents")
+							(button :style "color: #ffc689" "Music")
+							(button :style "color: #d478e9" "Videos")
+							(button :style "color: #eca5fc" "/media")
+							(button :style "color: #59d194" "/usr")
+							(button :style "color: #61b1db" "/usr/local")
+						)
+					)
+				)
+			)
+			(box :orientation "h" :class "l22" :space-evenly "false"
+				(box :orientation "v" :class "l31b" :space-evenly "false"
+					(box :orientation "v" :class "doge" 
+						(button :onclick "eww update graph2='false' && eww update graph3='false' && eww update graph1='true'" "" )
+						(image :path "/home/swexti/Pictures/rice/dogecoin.png" :image-height "38" :image-width "38" :style "margin-top: -40px; margin-left: -10px;")
+					)
+					(box :orientation "v" :class "bit"
+						(button :onclick "eww update graph1='false' && eww update graph3='false' && eww update graph2='true'" "  ")
+						(image :path "/home/swexti/Pictures/rice/bitcoin.png" :image-height "38" :image-width "38" :style "margin-top: -40px; margin-left: -10px;")
+					)
+					(box :orientation "v" :class "lite"
+						(button :onclick "eww update graph2='false' && eww update graph1='false' && eww update graph3='true'" "  ")
+						(image :path "/home/swexti/Pictures/rice/litecoin.png" :image-height "38" :image-width "38" :style "margin-top: -40px; margin-left: -10px;")
+					)
+				)
+				(box :orientation "v" :class "l32b"
+					(box :orientation "h" :class "graph"
+						(box :orientation "v" :style "color: #f9b163" :visible "${graph1}" :class "bitcoin"
+							(graph :value "${randomvalue}" :time-range "30s" :min "0" :max "9" :dynamic "false" :thickness "2")
+							(label :text "Dogecoin (DOGE) Value")
+						)
+						(box :orientation "h" :style "color: #d478e9" :visible "${graph2}"
+							(graph :value "${randomvalue}" :time-range "30s" :max "10" :dynamic "true" :thickness "2")
+							(label :text "Bitcoin (BTC) Value")
+						)
+						(box :orientation "h" :style "color: #61b1db" :visible "${graph3}"
+							(graph :value "${randomvalue}" :time-range "30s" :max "10" :dynamic "true" :thickness "2")
+							(label :text "Litecoin (LTC) Value")
+						)
+
+						;graphs above uses random values, actual crpyto value in a json can be found here: https://api.cryptonator.com/api/ticker/doge-eur (though there's some cloudflare DDOS protection so actually getting it might be hard idk, i couldn't do it with curl, it just returned the cloudflare page instead of the json)
+					)
+					
+					
+				)
+			)
+		)
+		(box :orientation "v" :class "l12" :space-evenly "false"
+			(box :orientation "h" :class "l23" :space-evenly "false"
+				(box :orientation "v" :class "l31c" :space-evenly "false"
+					(box :orientation "h" :class "l41c" :space-evenly "false"
+						(box :orientation "v" :class "l51c" :space-evenly "false"
+							(box :orientation "v" :class "l61c"
+								(box :orientation "h" :class "l71c"
+									(box :class "discord"
+										(image :path "./icons/discord.svg" :image-height "100" :image-width "80" )
+									)
+									(box :class "youtube"
+										(image :path "./icons/youtube.svg" :image-height "100" :image-width "80")
+									)
+								)
+								(box :orientation "h" :class "172c"
+									(box :class "coin"
+										(image :path "./icons/bitcoin.svg" :image-height "100" :image-width "80")
+									)
+									(box :class "reddit"
+										(image :path "./icons/reddit.svg" :image-height "100" :image-width "80")
+									)
+								)
+							)
+							(box :orientation "v" :class "l62c" :space-evenly "false"
+								(box :orientation "v" :class "quote2"
+									(label :text "but what's your favorite bread??")
+									(label :text "all breads are good")
+									(label :text "thank u, bread")
+								)
+							)
+						)
+						(box :orientation "v" :class "l52c" :space-evenly "false"
+							(box :orientation "v" :class "player" :space-evenly "false"
+								(box :orientation "h" :space-evenly "false"
+									(box :orientation "h" :class "image"
+										(image :path "${image-cover}" :image-width "248" :image-height "248")
+									)
+								)
+								(box :orientation "v" :space-evenly "false"
+									(label :text "${title}" :style "font-weight: Bold; font-size: 1.5em; margin-top: 5px;")
+									(label :text "${artist}")
+
+									(box :orientation "v" :class "controls" :space-evenly "false" :style "margin-top: 5px;"
+										(button :class "feather" "" )
+										
+										(box :orientation "h" :class "feather"
+											(button "" )
+											(button "")
+										)
+
+										(box :orientation "v" :class "volume"
+											(box :orientation "h"
+												(label :text "Vol")
+												(label :text "${volume}%") ;i am not sure why this value does not update.
+											)
+											(scale :value "61" :min "0" :max "100" :onchange "amixer -D pulse --quiet sset Master {}%")
+											
+										)
+									)
+								)
+							)
+						)
+					)
+					(box :orientation "h" :class "l42c" :space-evenly "false"
+						(box :orientation "h" :class "weather" :space-evenly "false"
+							(box :orientation "v" :class "weather-icon" :space-evenly "false" :style "font-size: 2.5em; margin-right: 10px; margin-top: 10px;"
+								(label :text "${weather-icon}" :style "color: #F9B163" :class "feather")
+							)
+							(box :orientation "v" :class "weather-type"  :space-evenly "false" 
+								(label :text "Current weather cond:" :halign "start" :style "font-weight: Bold; font-size: 1.5em;" )
+								(label :text "${conditions}" :halign "start" :style "font-weight: Bold; font-size: 1.5em; color: #59D194" )
+								(box :orientation "h" :style "margin-top: 5px;"
+									(label :text "${weather-call}" :style "color: #8cdaf8; font-weight: Bold;")
+									(button :onclick "./scripts/weather"  :halign "end" :style "margin-right: 10px;" "Update" )
+								)
+							)
+						) 
+						(box :orientation "h" :class "time" :space-evenly "false"
+							(box :orientation "v" :class "time-icon" :space-evenly "false" :style "font-size: 3.5em; margin-top: 6px;"
+								(label :text "" :class "feather")
+								;not sure why there's a moon here, no idea what i was thinking while i was designing
+							)
+							(box :orientation "v" :class "time-temp" :space-evenly "false" :style "font-size: 2em; margin-top: 10px; font-weight: Bold;"
+								(label :text "${temp}°")
+								(label :text " C")
+							)
+						)
+					)			
+				)
+				(box :orientation "v" :class "l32c" :space-evenly "false"
+					(box :orientation "h" :class "l43c" :space-evenly "false"
+						(box :orientation "h" :class "clock" :space-evenly "false"
+							(box :orientation "h" :class "clock-time" :style "font-size: 3.5em; margin-left: 10px;"
+								(label :text "${time}")	
+							)
+							(box :orientation "v" :class "clock-date" :style "font-size: 1.75em; margin-left: 20px;"
+								(label :text "${date}")
+								(label :text "${year}")
+							)
+						)
+					)
+					(box :orientation "h" :class "l44c" :space-evenly "false"
+						(box :orientation "v" :class "l53c" :space-evenly "false"
+							(box :orientation "v" :class "user" :space-evenly "false"
+								(image :path "/home/swexti/Downloads/Avatar/avatar1.png" :image-width "230" :image-height "230")
+								(label :text "Swexti" :style "font-weight: Bold; font-size: 2em;")
+								(label :text "Swexti#8112" :style "color: #989898; margin-top: 10px; margin-bottom: 10px;")
+							)
+							(box :orientation "h" :class "system"
+								(box :class "feather"
+									(button "")
+									(button "")
+									(button "")
+									(button "")
+								)
+							)
+						)
+					)
+				)
+			)
+			(box :orientation "h" :class "l24" :space-evenly "false"
+				(box :orientation "h" :class "l33c" :space-evenly "false"
+					(box :orientation "h" :class "status"
+						(box :orientation "v" :class "RAM" :style "color: #EE6388"
+							(box :orientation "h" :class "ram-bar"
+								(box :style "margin-right: -90px;"
+									(circular-progress :value "100" :thickness "5" :start-at "25")
+								)
+								(label :text "" :style "font-size: 5em; margin-left: -70px;")
+							)
+							(label :text "${RAM}%" :valign "end")
+						)
+						(box :orientation "v" :class "CPU" :style "color: #61B1DB"
+							(box :orientation "h" :class "cpu-bar"
+								(box :style "margin-right: -90px;"
+									(circular-progress :value "${CPU}" :thickness "7" :start-at "25")
+								)
+								(label :text "" :style "font-size: 5em; margin-left: -70px;")
+							)
+							(label :text "${CPU}%" :valign "end")
+						)
+						(box :orientation "v" :class "DISK" :style "color: #F9B163"
+							(box :orientation "h" :class "disk-bar"
+								(box :style "margin-right: -90px;"
+									(circular-progress :value "${DISK}" :thickness "5" :start-at "25")
+								)
+								(label :text "" :style "font-size: 5em; margin-left: -70px;")
+							)
+							(label :text "${DISK}%" :valign "end")
+						)
+					)
+				)
+				(box :orientation "v" :class "l34c" :space-evenly "false"
+					(box :orientation "v" :class "l45c" :space-evenly "false"
+						(box :orientation "v" :class "ETH" :style "padding: 25px; padding-top: 32px; padding-bottom: 32px;" :space-evenly "false"
+							(label :text "Ethereum (ETH):" :style "color: #AE81FF;")
+							(label :text "$2,473.82" :style "font-weight: Bold; font-size: 2.2em; color: #F9B163;")
+						)
+						(box :orientation "v" :class "BNB" :style "padding: 25px; padding-top: 32px; padding-bottom: 32px;" :space-evenly "false" 
+							(label :text "Binance (BNB):" :style "color: #EE6388;")
+							(label :text "$348.66" :style "font-weight: Bold; font-size: 2.2em; color: #F9B163;")
+						)
+					)
+					; ^ Again, not functional. You could fetch the current price off-of the same API listed above.
+				)
+			)
+		)
+	)
+)
+
+
+(defwidget bar []
+	(box :orientation "h" :class "bar"
+		(box :orientation "h" :class "left" :halign "start"
+			(box :orientation "h" :class "start" :halign "start"
+				(button "")
+			)
+			(box :orientation "h" :class "workspace" :halign "end" :space-evenly "false"
+				(button :onclick "wmctrl -s 0" "1")
+				(button :onclick "wmctrl -s 1" "2")
+				(button :onclick "wmctrl -s 2" "3")
+				(button :onclick "wmctrl -s 3" "4")
+			)
+		)
+		(box :orientation "h" :class "right" :halign "end"
+			(box :orientation "h" :class "bar-clock" :halign "start" :valign "center"
+				(label :text "${hour}")
+			)
+			(box :orientation "h" :class "apps" :halign "center" :space-evenly "false"
+				(button :class "bar-web" "")
+				(button :class "bar-folder" "" )
+				(button :class "bar-terminal" "" )
+			)
+			(box :orientation "h" :class "power" :halign "end"
+				(button "")
+			)
+		)
+	)
+)
+
+(defwidget powermenu []
+	(box :orientation "h" :class "powermenu-whole"
+		(box :orientation "v" :class "powermenu-left" :space-evenly "false"
+			(box :class "powermenu-calendar"
+				(calendar)
+			)
+			(box :orientation "h" :class "powermenu-power"
+				(button :class "feather" :style "font-size: 1.8em;" "" )
+				(button :class "feather" :style "font-size: 1.8em;" "" )
+				(button :class "feather" :style "font-size: 1.8em;" "" )
+			)
+		)
+		(box :orientation "h" :class "powermenu-right"
+			(box :orientation "h" :class "powermenu-bars"
+				(box :orientation "v" :class "powermenu-volume"  :space-evenly "false"
+					(label :text "${volume}%")
+					(scale :min "0" :max "100" :value "54" :orientation "v" :flipped "true")
+					(label :text "V")
+				)
+				(box :orientation "v" :class "powermenu-brightness"  :space-evenly "false"
+					(label :text "${volume}%")
+					(scale :min "0" :max "100" :value "100" :orientation "v" :flipped "true")
+					(label :text "B")
+				)
+			)
+			(box :orientation "v" :class "powermenu-profile" :space-evenly "false"
+				(box :class "powermenu-image"
+						(image :path "/home/swexti/Downloads/Avatar/avatar-round.png" :image-width "90" :image-height "90")
+				)
+				(box :orientation "v" :class "powermenu-bio"
+					(label :text "'I'm one of" :xalign "0.5" :class "powermenu-text")
+					(label :text "those weird" :xalign "0.5" :class "powermenu-text")
+					(label :text "regular" :xalign "0.5" :class "powermenu-text")
+					(label :text "people'" :xalign "0.5" :class "powermenu-text")
+				)
+			)
+		)
+	)
+
+)
+
+(defwidget sidebar []
+	(box :orientation "v" :class "sidebar-whole" :space-evenly "false"
+		(box :orientation "h" :class "sidebar-upper" :space-evenly "false"
+			(box :orientation "h" :class "sidebar-clock"
+				(label :text "${current-hour}" :class "sidebar-hour")
+				(label :text ":" :class "sidebar-separator")
+				(label :text "${current-minute}" :class "sidebar-minute")
+			)
+			(box :orientation "v" :space-evenly "false" :class "sidebar-date"
+				(box :orientation "h"
+					(label :text "${current-day}" :class "sidebar-day")
+					(label :text "${current-month}" :class "sidebar-month")
+				)
+				(label :text "${year}" :class "sidebar-year")
+			)
+		)
+		(box :orientation "v" :class "sidebar-lower" :space-evenly "false"
+			(box :orientation "v" :class "sidebar-weather" :space-evenly "false"
+				(box :orientation "h" :class "sidebar-current" :space-evenly "false"
+					(label :text "${weather-icon}" :class "sidebar-icon")
+					(box :orientation "v" :class "sidebar-conditions" :space-evenly "false"
+						(label :text "${conditions}" :class "sidebar-wconditions" :halign "start")
+						(label :text "${temp}°C" :class "sidebar-temp" :halign "start")
+					)
+				)
+				(box :orientation "h" :class "sidebar-update" :valign "end" :space-evenly "false"
+					(label :text " Hudiksvall" :halign "start" :class "sidebar-location")
+					(box :orientation "h" :halign "end" :class "sidebar-wupdate" :space-evenly "false"
+						(label :text "${weather-call}")
+						(button :onclick "./scripts/weather" :style "margin-left: 10px;" "Update")
+					)
+				)
+			)
+			(box :orientation "h" :space-evenly "false"
+				(box :orientation "h" :class "sidebar-score" :space-evenly "false"
+					(box :orientation "h" :space-evenly "false" :class "sidebar-scale"
+						(box :style "margin-right: -90px; min-width: 125px; min-height: 125px;" 
+							(circular-progress :value "64" :thickness "5" :start-at "25")
+						)
+						(box :orientation "v" :space-evenly "false" :style "margin-top: 55px;"
+							(label :text "295/320")
+							(label :text "64%")
+						)
+					)
+					(label :text "250" :valign "end" :class "sidebar-scale-text")
+				)
+				(box :orientation "v" :class "sidebar-song" :space-evenly "false"
+					(label :text "" :class "sidebar-songicon") 
+					(box :orientation "v" :space-evenly "false" :class "sidebar-playing"
+						(label :text "Currently playing:" :class "sidebar-playing-notification")
+						(label :text "${title}" :limit-width "20")
+						(label :text "${artist}" :limit-width "20")
+
+					)
+				)
+			)
+			; YES I KNOW IT'S SLOPPILY MADE, I DO NOT CARE, IT IS SIMPLY A PROOF OF CONCEPT. If you want something similar
+			; that actually works, I'd recommend making a script. I just made this to say "You can make it"
+			(box :orientation "h" :class "sidebar-todo" :halign "start"
+				(box :orientation "h" :class "sidebar-todo-contents" :space-evenly "false"
+					(box :orientation "h" :space-evenly "false"
+						(box :orientation "v" :class "sidebar-todo-checkboxes" 
+							(button :onclick "sed -i '1d' /tmp/todo" "" )
+							(button :onclick "sed -i '2d' /tmp/todo" "")
+							(button :onclick "sed -i '3d' /tmp/todo" "")
+						)
+				
+						(box :orientation "v" :class "sidebar-todo-text"
+							(label :text "${todo1}" :halign "start")
+							(label :text "${todo2}" :halign "start")
+							(label :text "${todo3}" :halign "start")
+						)
+					)
+					(box :orientation "v" :class "sidebar-todo-input" :space-evenly "false"
+						(box :orientation "v" :class "sidebar-todo-addtext"
+							(box :orientation "v" :visible "${todo}" :style "background-color: #C2CAE2;"
+								(button :onclick "eww update todo=false" "X")
+								(input :onaccept "echo '{}' >> /tmp/todo")
+							)
+						)
+						(box :class "sidebar-todo-add" :space-evenly "false"
+							(button :onclick "eww update todo=true" "+")
+						)
+					)
+				)
+			)
+			(box :orientation "h" :class "sidebar-profile" :space-evenly "false"
+				(box :orientation "h" :class "sidebar-image"
+					(image :path "/home/swexti/Downloads/Avatar/avatar-round.png" :image-width "60" :image-height "60")
+				)
+				(box :orientation "v" :class "sidebar-name"
+					(label :text "Swexti" :halign "start" :class "sidebar-name-name")
+					(label :text "Uptime: ${uptime}" :halign "start" :class "sidebar-name-uptime")
+				)
+			)
+		)
+	)
+)
+
+;graph
+(defvar graph1 `true`)
+(defvar graph2 `false`)
+(defvar graph3 `false`)
+
+;development variables
+(defpoll randomvalue :interval "0.5s" `fish -c 'random 0 9'`)
+(defpoll randomvalue-big :interval "1s" `fish -c 'random 0 100'`)
+(defpoll zero :interval "1s" `echo 0`)
+
+; time
+(defpoll time :interval "2s" `date "+%I:%M %p"`)
+(defpoll hour :interval "1s" `date "+%H:%M"`)
+(defpoll date :interval "30s" `date +%m-%d`)
+(defpoll year :interval "30s" `date +%Y`)
+
+(defpoll current-hour :interval "2s" `date "+%H"`)
+(defpoll current-minute :interval "1s" `date "+%M"`)
+(defpoll current-day  :interval "100s" `date "+%d"`)
+(defpoll current-month :interval "100s" `date "+%B"`)
+
+
+; stats
+(defpoll RAM :interval "2s" `free -t | awk 'FNR == 2 {printf("%.0f%"), $3/$2*100}' | tr -d "%"`)
+(defpoll CPU :interval "2s" `top -bn1 | grep '%Cpu' | tail -1 | grep -P '(....|...) id,' | awk '{print 100-$8 "%"}' | tr -d "%" `)
+(defpoll DISK :interval "2s" `df -H | awk '{ if(NR==4) print $5 }' | tr -d "%"`)
+
+; weather
+(defpoll conditions :interval "2s" `./scripts/weather --desc`)
+(defpoll temp :interval "2s" `./scripts/weather --temp`)
+(defpoll weather-icon :interval "2s" `./scripts/weather --icon`)
+(defpoll weather-call :interval "2s" `./scripts/weather --call`)
+
+;volume
+(defpoll volume :interval "100ms" `amixer -D pulse sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }' | tr -d "%"`)
+
+;music
+(defpoll image-cover :interval "2s" `echo -n "/home/swexti/.mozilla/firefox/firefox-mpris/"; ls /home/swexti/.mozilla/firefox/firefox-mpris | ansi2txt` ) ;yeah, yeah i know it's weird but i couldn't figure out how to echo whatever file was in that folder
+(defpoll title :interval "2s" `playerctl metadata --format "{{ title }}"`)
+(defpoll artist :interval "2s" `playerctl metadata --format "{{ artist }}"`)
+
+;uptime
+(defpoll uptime :interval "30s" `uptime -p`)
+
+;todo list (yeah i know it's sloppily done, but it works)
+(defpoll todo1 :interval "1s" `cat /tmp/todo | awk 'NR == 1 { print }'`)
+(defpoll todo2 :interval "1s" `cat /tmp/todo | awk 'NR == 2 { print }'`)
+(defpoll todo3 :interval "1s" `cat /tmp/todo | awk 'NR == 3 { print }'`)
+(defvar todo false)
+
+;geometry
+(defwindow window
+	:geometry (geometry :x "0px" :y "0px" :width "1492px" :height "816px" :anchor "center" ) :wm-ignore "false" :windowtype "normal" 
+	(widget)
+)
+
+(defwindow bar
+	:geometry (geometry :x "0px" :y "0px" :width "100%" :height "10px" :anchor "center top") :wm-ignore "false" :windowtype "dock"
+	(bar)
+)
+
+(defwindow powermenu
+	:geometry (geometry :x "-20px" :y "61px" :width "374px" :height "218px" :anchor "top right") :wm-ignore "false" :windowtype "normal"
+	(powermenu)
+)
+
+(defwindow sidebar
+	:geometry (geometry :x "0px" :y "0px" :width "304px" :height "839px" :anchor "center left") :wm-ignore "false" :windowtype "normal"
+	(sidebar)
+)

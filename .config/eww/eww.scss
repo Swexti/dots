@@ -1,0 +1,634 @@
+
+* {
+	all: unset;
+	//border: 1px solid #00ff00;
+}
+
+
+$background  : #f4f5f8;
+$background2 : #F6C0FF;
+$background3 : #C2CAE2;
+$background4 : #E0E4F0;
+$foreground  : #49495a;
+$foreground2 : #464658;
+$foreground3 : #5d5d6d;
+
+
+$red 		 : #ee6388;
+$green 		 : #59d194;
+$blue 		 : #62c4e9;
+$yellow 	 : #f9b163;
+$magenta 	 : #d478e9;
+$cyan 		 : #61b1db;
+$white 		 : #5b5b73;
+
+
+.highest, .graph, .calendar, .quote1, .web, .folders, .weather, .time, .player, .quote2, .RAM, .CPU, .DISK, .clock, .ETH, .BNB {
+	border-radius: 16px;
+	background-color: $background;
+	color: $foreground;
+	margin: 12px;
+	padding: 10px;
+	font-family: Inconsolata SemiCondensed;
+	font-size: 1em;
+	box-shadow: 8px 8px 8px -10px #000000;
+}
+.feather {
+	font-family: 'feather';
+	font-size: 1.5em;
+}
+
+.web {
+	padding: 10px;
+}
+.web-search {
+	padding: 10px;
+	border-radius: 16px;
+	background-color: $background2;
+}
+
+.highest {
+	min-width: 163px;
+	min-height: 98px;
+}
+.folders {
+	min-width: 163px;
+	min-height: 212px;
+	font-weight: Bold;
+}
+
+.calendar {
+	min-width: 228px;
+}
+
+.quote1 {
+	padding-left: 20px;
+}
+.quote2 {
+	min-width: 240px;
+	min-height: 120px;
+}
+.graph{
+	min-width: 364px; 
+	min-height: 327px;
+	margin-left: 40px;
+	padding-left: 30px;
+
+	font-size: 1.5em;
+}
+
+.doge, .bit, .lite {
+	min-width: 68px;
+	min-height: 73px;
+	margin: 0px;
+	
+	//padding-top: 8px;
+	//padding-bottom: 8px;
+	//padding-left: 5px;
+	//padding-right: 5px;
+
+	margin-right: -55px;
+	margin-left: 10px;
+	margin-top: -3px;
+	margin-bottom: 15px;
+	
+	border-radius: 25px 0px 0px 25px;
+}
+
+.doge {
+	background-color: $yellow;
+}
+.bit, .lite {
+	background-color: $background3;
+}
+
+.highest {
+	font-size: 1.1em
+}
+
+.l31b {
+	margin-top: 15px;
+}
+
+.l51c {
+	//padding-right: 50px;
+	//padding-bottom: 50px;
+}
+
+.coin, .discord, .reddit, .youtube {
+	margin: 10px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+
+
+.coin {
+	background-color: $green;
+	border-radius: 50px 0px 50px 0px;
+}
+.discord {
+	background-color: $red;
+	border-radius: 0px 50px 0px 50px;
+}
+.youtube {
+	background-color: $yellow;
+	border-radius: 50px 0px 50px 0px;
+}
+.reddit {
+	background-color: $cyan;
+	border-radius: 0px 50px 0px 50px;
+}
+
+
+
+.weather {
+	padding: 15px;
+}
+
+.RAM, .CPU, .DISK {
+	min-width: 192px;
+	min-height: 240px;
+}
+
+.circular {
+	margin: 15px; 
+	margin-bottom: -50px;
+}
+
+.time {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+
+// it was at this point i learned about that nested classes are perfectly acceptable within scss (css does NOT, so i assumed scss also didn't), allowing for much, much cleaner configs.
+
+.player {
+	min-height: 381px;
+
+	.image image {
+		border: 3px solid $foreground2;
+		min-height: 248px;
+		min-width: 248px;
+	}
+
+	.controls {
+		margin-top: 20px;
+	}
+
+	.volume scale {
+		min-width: 100px;
+	}
+	.volume scale trough {
+		min-width: 100px;
+		min-height: 10px;
+		border-radius: 20px;
+		background-color: $background3;
+	}
+	.volume scale trough slider{
+		min-width: 10px;
+		min-height: 10px;
+		border-radius: 20px;
+		background-color: $red;
+	}
+	.volume scale trough highlight{
+		min-width: 10px;
+		min-height: 10px;
+		border-radius: 20px;
+		background-color: $red;
+	}
+
+
+}
+
+.cpu-bar, .ram-bar, .disk-bar {
+	margin: 15px; 
+	margin-bottom: -50px;
+}
+.user {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	
+	border-top-right-radius: 16px;
+	border-top-left-radius: 16px;
+	background-color: $background;
+	color: $foreground;
+	margin: 12px;
+	padding: 10px;
+	font-family: Inconsolata SemiCondensed;
+	font-size: 1em;
+
+	image {
+		margin-left: 30px;
+		margin-right: 30px;
+		margin-top: 30px;
+		margin-bottom: 20px;
+		border-radius: 20px;
+	}
+}
+.system {
+	border-bottom-left-radius: 16px;
+	border-bottom-right-radius: 16px;
+	margin: 12px;
+	padding: 10px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: $background2;
+	color: #ffffff;
+	font-size: 1.7em;
+	margin-top: -12px;
+}
+
+//-----------
+// Bar
+//-----------
+
+.start, .workspace, .apps, .power {
+	font-family: feather;
+	font-size: 1.15em;
+
+	background-color: $background;
+	
+
+	&:not(.start):not(.power) {
+		padding: 10px;
+		padding-left: 15px;
+		padding-right: 15px;
+		color: $foreground;
+	}
+
+	margin-top: 12px;
+	margin-bottom: 12px;
+	border-radius: 100px;
+
+	box-shadow: 8px 8px 8px -10px #000000;
+}
+
+
+// Left
+
+.start {
+	margin-left: 16px;
+	padding: 5px;
+	padding-left: 7px;
+	padding-right: 7px;
+
+	color: $background;
+	font-weight: Bold;
+
+	button {
+		padding-left: 7px;
+		border-radius: 100px;
+		box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+		padding-right: 7px;
+		background-color: $green;
+	}
+}
+
+.workspace {
+	margin-left: -35px;
+
+	button {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+}
+
+
+//Right
+
+.bar-clock {
+	font-family: Inconsolata SemiCondensed;
+	font-weight: Bold;
+	font-size: 1.3em;
+
+	margin-bottom: 12px;
+	margin-top: 12px;
+
+	margin-right: -160px;
+
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+
+}
+
+.apps {
+	margin-right: -35px; 
+	
+	font-size: 1.3em;
+
+	.bar-web {
+		color: $blue;
+	}
+	.bar-folder {
+		color: $yellow;
+	}
+	.bar-terminal {
+		color: $magenta;
+	}
+	button {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+}
+
+.power {
+	margin-right: 16px;
+	padding: 5px;
+	padding-left: 7px;
+	padding-right: 7px;
+
+	color: $background;
+	font-weight: Bold;
+
+	button {
+		padding-left: 7px;
+		border-radius: 100px;
+		box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+		padding-right: 7px;
+		background-color: $red;
+	}
+}
+
+//-----------
+// Powermenu
+//-----------
+
+.powermenu-whole {
+	box-shadow: 8px 8px 8px -10px #000000;
+	color: $foreground;
+
+	.powermenu-left {
+		.powermenu-calendar {
+			background-color: $background4;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			border-top-left-radius: 24px;
+		}
+		.powermenu-power {
+			background-color: $background3;
+			color: $background;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			border-bottom-left-radius: 24px;
+		}
+	}
+	.powermenu-right {
+		border-top-right-radius: 24px;
+		border-bottom-right-radius: 24px;
+		background-color: #EDF0F9;
+
+
+		.powermenu-bars {
+			margin-top: 10px;
+		}
+		.powermenu-bars scale {
+			
+			min-height: 150px;
+			margin-bottom: 10px;
+		}
+		.powermenu-bars scale trough {
+			min-width: 20px;
+			min-height: 100px;
+			border-radius: 20px;
+			background-color: $background3;
+		}
+		
+		.powermenu-volume scale trough slider{
+			min-width: 20px;
+			min-height: 20px;
+			margin-bottom: -10px;
+			border-radius: 20px;
+			background-color: $red;
+		}
+		.powermenu-volume scale trough highlight{
+			min-width: 20px;
+			min-height: 20px;
+			border-radius: 20px;
+			background-color: $red;
+		}
+		.powermenu-volume label {
+			color: $red;
+			font-weight: Bold;
+			margin-bottom: 5px;
+		}
+		.powermenu-brightness label {
+			color: $yellow;
+			font-weight: Bold;
+			margin-bottom: 5px;
+		}
+
+		.powermenu-brightness scale trough slider{
+			min-width: 20px;
+			min-height: 20px;
+			margin-bottom: -10px;
+			border-radius: 20px;
+			background-color: $yellow;
+		}
+		.powermenu-brightness scale trough highlight{
+			min-width: 20px;
+			min-height: 20px;
+			border-radius: 20px;
+			background-color: $yellow;
+		}
+
+		.powermenu-profile {
+			margin-left: -15px;
+			margin-top: 10px;
+			
+			.powermenu-image image {
+				//border: 2px solid #0f0;
+				border-radius: 100px;
+			}
+
+			.powermenu-bio {
+				color: $blue;
+				font-weight: Bold;
+				.powermenu-text {
+					margin-top: 10px;
+				}
+			}
+		}
+
+	}
+}
+
+//-----------
+// Sidebar
+//-----------
+.sidebar-whole {
+	color: $foreground;
+	.sidebar-upper {
+		padding-top: 30px;
+		padding-bottom: 50px;
+		margin-bottom: -20px;
+		background-color: $background4;
+		border-top-right-radius: 24px;
+
+		.sidebar-clock {
+			font-weight: Bold;
+			font-size: 4em;
+			margin-left: 80px;
+
+			.sidebar-hour {
+				color: $red;
+			}
+			.sidebar-separator {
+				color: $background3
+			}
+			.sidebar-minute {
+				color: $magenta
+			}
+		}
+		.sidebar-date {
+			font-weight: Bold;
+			font-size: 1.5em;
+			margin-top: 10px;
+
+			.sidebar-day {
+				color: $green;
+			}
+			.sidebar-month {
+				color: $blue;
+			}
+			.sidebar-year {
+				color: $yellow;
+			}
+
+		}
+	}
+	.sidebar-lower {
+		background-color: $background;
+		border-top-right-radius: 24px;
+		border-bottom-right-radius: 24px;
+		min-height: 600px;
+
+		.sidebar-weather, .sidebar-score, .sidebar-song, .sidebar-todo, .sidebar-profile { 
+			font-weight: Bold;
+			border-radius: 24px;
+			margin: 12px;
+			background-color: $background4;
+		}
+		.sidebar-weather {
+			min-height: 134px;
+			margin-top: 24px;
+			.sidebar-current {
+				margin-top: 25px;
+				margin-left: 40px;
+				.sidebar-icon {
+					font-family: 'feather';
+					font-weight: normal;
+					color: $yellow;
+					font-size: 4em;
+				}
+				.sidebar-conditions {
+					font-size: 1.5em;
+					margin-left: 20px;
+					margin-top: 4px;
+					.sidebar-wconditions {
+						color: $green;
+					}
+					.sidebar-temp {
+						color: $blue;
+					}
+				}
+			}
+			.sidebar-update {
+				margin-top: 10px;
+				margin-left: 30px;
+				.sidebar-location {
+					font-size: 1.2em;
+					color: $blue;
+				}
+				.sidebar-wupdate {
+					margin-left: 35px;
+					color: $magenta;
+				}
+			}
+		}
+		.sidebar-score {
+			min-height: 155px;
+			min-width: 164px;
+			.sidebar-scale {
+				color: #ee6388;
+				margin-left: 25px;
+				margin-bottom: 10px;
+				.sidebar-progress { 
+					min-height: 125px;
+					min-width: 125px;
+					
+				}
+			}
+			.sidebar-scale-text {
+				margin-left: -50px;
+				color: $red;
+			}
+		}
+		.sidebar-song {
+			min-width: 200px;
+			min-height: 155px;
+
+			.sidebar-songicon {
+				font-family: 'feather';
+				font-weight: normal;
+				margin-top: 15px;
+				margin-right: 25px;
+				font-size: 3em;
+				color: $blue;
+				text-shadow: 5px 5px 0px $magenta;
+			}
+			.sidebar-playing {
+				margin-top: 15px;
+				.sidebar-playing-notification {
+					margin-top: 5px; 
+					color: $blue;
+				}
+			}
+		}
+		.sidebar-todo {
+			min-width: 390px;
+			min-height: 196px;
+			font-size: 1.5em;
+			.sidebar-todo-contents {
+				margin-left: 10px;
+				.sidebar-todo-text {
+					margin-left: 20px;
+				}
+				.sidebar-todo-checkboxes {
+					margin-left: 20px;
+				}
+				.sidebar-todo-input {
+					margin-top: 140px;
+					margin-left: 20px;
+					font-weight: normal;
+					.sidebar-todo-addtext {
+						margin-left: -90px;
+					}
+					.sidebar-todo-add button {
+						padding: 10px;
+						padding-left: 20px;
+						padding-right: 20px;
+						border-radius: 24px;
+						box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+						background-color: $background3;
+
+					}	
+				}
+				
+			}
+		}
+		.sidebar-profile {
+			padding: 10px;
+			.sidebar-name {
+				margin-left: 10px;
+				.sidebar-name-name {
+					font-size: 1.3em;
+					color: $magenta;
+				}
+				.sidebar-name-uptime {
+					color: $blue;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,35 @@
+.thunar .sidebar {
+	background: linear-gradient(120deg, rgba(238,240,248,1) 0%, rgba(238,240,248,1) 30%, rgba(238,99,136,1) 30%, rgba(238,99,136,1) 40%, rgba(249,177,99,1) 40%, rgba(249,177,99,1) 50%, rgba(89,209,148,1) 50%, rgba(89,209,148,1) 60%, rgba(98,196,233,1) 60%, rgba(98,196,233,1) 70%, rgba(238,240,248,1) 70%, rgba(238,240,248,1) 100%);
+	border-right: 5px solid #d478e9;
+	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+	font-weight: Bold;
+	color: #49495a;
+}
+
+.thunar .horizontal image {
+	color: #62c4e9;
+}
+
+.thunar .sidebar .view:not(:selected) {
+
+	background-color: transparent;
+
+}
+
+.thunar .sidebar .view {
+
+	color: #49495a;
+
+	background: transparent;
+
+}
+
+.thunar .sidebar .view:selected {
+	color: #d478e9;
+}
+
+.thunar #location-toolbar {
+
+	border-bottom: 1px solid rgba(0,0,0,0);
+
+}
